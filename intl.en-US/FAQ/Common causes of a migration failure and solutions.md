@@ -10,11 +10,11 @@ The common causes of migration failure and solutions are described as follows:
 
 Description: Assume that Customer A migrates data from Baidu Object Storage \(BOS\) to Alibaba Cloud Object Storage Service \(OSS\). The following error occurs in the failed migration file list.
 
-![](images/35068_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135068_en-US.png)
 
 When you view the log file of BOS, the following error message appears in the log file.
 
-![](images/35069_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135069_en-US.png)
 
 Cause: The error messages that appear at both sides show that an error occurs in BOS. BOS sets flow limits on the source data address due to a large number of requests. This causes a migration failure.
 
@@ -30,7 +30,7 @@ Solution: You can contact Baidu customer service to remove the flow limits or re
 
 Description: When you migrate data from third-party data stores to OSS, an error occurs in the failed migration file list.
 
-![](images/35080_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135080_en-US.png)
 
 Cause: This issue occurs when the last modification time of files at the source data address is later than the last modification time of files at the destination data address. A file checksum error occurs when you update source files after these files have been migrated to the destination bucket.
 
@@ -40,7 +40,7 @@ Solution: You can migrate the updated files again.
 
 Description: When you migrate data from third-party data stores to OSS, an error occurs in the failed migration file list.
 
-![](images/35092_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135092_en-US.png)
 
 Cause: This issue occurs when a connection that is used to send or received data is closed by OSS. If the interval between two uploads exceeds one minute, the connection that is used to upload data is closed by OSS. Generally, the error is caused by network issues such as high network latency.
 
@@ -50,7 +50,7 @@ Solution: Repeat a migration job.
 
 Description: When you migrate data from third-party data stores to OSS, the error occurs in the failed migration list.
 
-![](images/35134_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135134_en-US.png)
 
 Cause: This issue occurs when the name of a source file is the same as that of a destination file but the last modification time of the destination file is later than the source file. Data Transport disregards the file during migration. However, an error may occur when Data Transport checks the file after the migration job is complete.
 
@@ -60,7 +60,7 @@ Solution: When you need to migrate the file, you can repeat the migration after 
 
 Description: When you migrate data between OSS buckets, an error occurs in the failed migration file list.
 
-![](images/35649_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135649_en-US.png)
 
 Cause: This issue occurs when insufficient permissions are granted. When creating data addresses, you must use an account that has the read permission of the source data address and the write permission of the destination data address. After a migration job is started, an error occurs when you change either the permissions of the account or the access permissions of storage space such as the bucket policy of OSS.
 
@@ -70,7 +70,7 @@ Solution: You can repeat the migration after restoring the permissions of the ac
 
 Description: When you migrate data between OSS buckets, the error occurs in the failed migration file list.
 
-![](images/35651_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/60910/155730964135651_en-US.png)
 
 Cause: This issue occurs when Data Transport does not support migrating archive files. The error occurs when archive files exist at the source data address.
 
