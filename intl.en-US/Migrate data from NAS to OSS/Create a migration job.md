@@ -19,27 +19,27 @@ When creating a migration job, you must note the following issues:
     |Option|Required|Description|
     |:-----|:-------|:----------|
     |**Data Type**|Yes|Select **NAS**.|
-    |**Data Region**|Yes|Select the region where the NAS file system is located.If you select Alibaba Cloud for the NAS Type, select the region where the NAS file system is located. If you select Others for the NAS Type, select the region that hosts the VPC where a third-party NAS file system is located.
+    |**Data Region**|Yes|Select the region where the NAS file system is located. If you select Alibaba Cloud for the NAS Type, select the region where the NAS file system is located. If you select Others for the NAS Type, select the region that hosts the VPC where a third-party NAS file system is located.
 
-|
+ |
     |**Data Name**|Yes|The data name can be 3 to 63 characters in length. Special characters are not supported, except for hyphens \(-\) and underscores \(\_\).|
-    |**NAS Type**|Yes|Select the required source of a NAS file system.    -   Alibaba Cloud: a file system that is created in NAS.
+    |**NAS Type**|Yes|Select the required source of a NAS file system.     -   Alibaba Cloud: a file system that is created in NAS.
     -   Others: a file system that is created in a third-party NAS service. You need to mount the file system on an ECS instance that is located in an Alibaba Cloud VPC network.
-|
+ |
     |**File System**|Yes \(only for Alibaba Cloud\)|Select the required NAS file system.|
-    |**Mount Point**|Yes \(only for Alibaba Cloud\)|Select the required NAS mount point.**Note:** Currently, you can only mount a NAS file system on an ECS instance that is located in a VPC network \(classic network not supported\).
+    |**Mount Point**|Yes \(only for Alibaba Cloud\)|Select the required NAS mount point. **Note:** Currently, you can only mount a NAS file system on an ECS instance that is located in a VPC network \(classic network not supported\).
 
-|
+ |
     |**VPC**|Yes \(only for Others\)|Select a VPC network where the third-party NAS file system is located.|
     |**Switches**|Yes \(only for Others\)|Select a VSwitch that is owned by the VPC network.|
     |**NAS Address**|Yes \(only for Others\)|Enter the IP address of the third-party NAS instance. This IP address must be accessible to the VPC.|
-    |**Sub Folder**|Optional|Enter the directory to be migrated. If you leave this field blank, all data in the root directory \(/\) is migrated.**Note:** If you enter the Sub Folder, ensure that the directory exists in the NAS instance. Otherwise, the data address fails to be created.
+    |**Sub Folder**|Optional|Enter the directory to be migrated. If you leave this field blank, all data in the root directory \(/\) is migrated. **Note:** If you enter the Sub Folder, ensure that the directory exists in the NAS instance. Otherwise, the data address fails to be created.
 
-|
+ |
     |**Connection Method**|Yes \(only for Others\)|Select a protocol type for NAS.|
     |**Connection Password**|Yes \(only for Others\)|Select whether a password is required.     -   **No password**: If no password is required to access the NAS service, select no password.
     -   **Use Password**: Enter the required username and password. You must use the username and password to access the shared folder.
-|
+ |
 
     **Note:** For more information about the status of a new data address, see [Data address status](#).
 
@@ -74,16 +74,16 @@ When creating a migration job, you must note the following issues:
     |:-----|:-------|:----------|
     |**Job Name**|Yes|The job name can be 3 to 63 characters in length and can contain lowercase letters, numbers, and hyphens \(-\). A job name cannot start or end with a hyphen \(-\).|
     |**Source Data Address**|Yes|Select the new source data address.|
-    |**Destination Data Address**|Yes|Select the new destination data address.**Note:** You can [open a ticket](https://selfservice.console.aliyun.com) to apply for the permission of creating a cross-country migration job. If the country where the source data address is located is different from the country where the destination data address is located You must ensure that your business is legitimate, data does not include illegal information, and data transit conforms to local rules and regulations.
+    |**Destination Data Address**|Yes|Select the new destination data address. **Note:** You can [open a ticket](https://selfservice.console.aliyun.com) to apply for the permission of creating a cross-country migration job. If the country where the source data address is located is different from the country where the destination data address is located You must ensure that your business is legitimate, data does not include illegal information, and data transit conforms to local rules and regulations.
 
-|
-    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. The files at the source data address are disregarded during migration. This occurs if the source files with an earlier update time have the same name as the destination files. However, all the other files are migrated.    -   **Full**: You can specify the **Start Time Point of File**. Files whose last modified time is later than the specified start time are migrated. After all of the files are migrated, a migration job is closed.**** When you perform a full migration job again, Data Transport only migrates files that have been changed after the last full migration job.
+ |
+    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. The files at the source data address are disregarded during migration. This occurs if the source files with an earlier update time have the same name as the destination files. However, all the other files are migrated.     -   **Full**: You can specify the **Start Time Point of File**. Files whose last modified time is later than the specified start time are migrated. After all of the files are migrated, a migration job is closed.**** When you perform a full migration job again, Data Transport only migrates files that have been changed after the last full migration job.
     -   **Incremental**: You must specify the **Migration Interval** and **Migration Times** to perform an incremental migration job. You must specify the **Start Point Time of File**. Files whose last modified time is later than the specified start time are migrated for the first time.**** After the first migration job is complete, an incremental migration job is performed based on the **Migration Interval**. At the source data address, files that are created or modified between the time when the last migration job started and before the time when this migration starts will be migrated to the destination data address. Assume that you specify N for the Migration Times. A full migration is performed once. In the future, an incremental migration will be performed \(N - 1\) times. For example, you set the Migration Interval to 1 and Migration Times to 5. Additionally, you set the **Start Time Point of File** to 2019/03/05 08:00:00. The present date and time is 2019/03/10 08:00. When you perform a migration job for the first time, Data Transport migrates files whose last modified time is between 2019/03/05 08:00 and 2019/03/10 08:00. Assume that the first migration job requires one hour to complete. The second migration job starts at 2019/03/10 10:00, which is two hours later than 2019/03/10 08:00. The migration job takes one hour, and the other hour is consumed by the specified migration interval. When you perform the second migration job, only files whose last modified time is between 2019/03/10 08:00 and 2019/03/10 10:00 are migrated. The migration job includes a full migration and four incremental migrations.
     -   **Sync**: You can synchronize data from the source data address to the destination data address. A synchronization job continuously runs based on the specified **Synchronization Interval** until you manually stop the job. When you perform a synchronization for the first time, files are synchronized based on the **Start Time Point of File**. After the first synchronization is completed, files that are created or modified after the start time of the last synchronization will be synchronized after the specified synchronization interval. Fox example, you perform the first synchronization at 2018/11/01 08:00. For the second synchronization, files that are created or modified after 2018/11/01 08:00 are synchronized.
 
 **Note:** You can select **Sync** when the source data address and the destination data address are located in the same region. You cannot select this option when the source data address and the destination data address are not located in the same region.
 
-|
+ |
     |**Start Time Point of File**|Yes \(only for Full and Incremental\)|     -   All: All files are migrated.
     -   Assign: Files that are created or modified after the specified time are migrated. For example, when you set the Start Time Point of File to 2018/11/01 08:00:00, only files that are created or modified after 2018/11/01 08:00:00 are migrated. The files that are created or modified before the specified time will be disregarded.
  |
@@ -111,7 +111,7 @@ When creating a migration job, you must note the following issues:
 
 5.  This step is optional. On the Performance tab, navigate to the **Flow Control** area and set the **Time Range** and **Max Flow**, and then click **Add**.
 
-    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and **Max Flow** based on the fluctuation of visits. The default value of the **Time Range** is 06:00 - 12:00. The default value of the **Max Flow** is 5 MB/s.
+    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and **Max Flow** based on the fluctuation of visits.
 
 6.  Click **Create**. Wait until a migration job is completed.
 
