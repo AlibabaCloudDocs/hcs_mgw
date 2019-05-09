@@ -22,7 +22,7 @@ Subsequent operations change based on the migration type. You can manage migrati
     2.  Click **Stop** and ensure that the job is stopped.
     3.  On the Flow Control Time Schedule chart, click **Reset**.
         -   To add a flow control setting, select the appropriate Time Range and Max Flow, and click **Add**.
-        -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155736508330945_en-US.png) next to a specific flow control setting.
+        -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155737116130945_en-US.png) next to a specific flow control setting.
         -   To modify a flow control setting, you must first delete the previous setting and add another flow control setting.
     4.  Click **OK**, and click **Start** to restart the job.
 -   View a migration report
@@ -43,7 +43,7 @@ Subsequent operations change based on the migration type. You can manage migrati
         -   The name of a file that includes the list of files failed to migrate includes the file name, migration start time, migration end time, and error description.
 -   Retry after a migration failure
 
-    If a migration job failed, you can view the generated file whose name ends with \_error\_list to find the causes of failure and troubleshoot the issue. On the Migration Jobs page, locate the failed job, click**Manage** next to the job, and click**Retry** to migrate failed files. For more information about FAQs for migration failures, see [../DNhcs\_mgw1878244/EN-US\_TP\_60910.md\#](../intl.en-US/FAQ/Common causes of a migration failure and solutions.md#).
+    If a migration job failed, you can view the generated file whose name ends with \_error\_list to find the causes of failure and troubleshoot the issue. On the Migration Jobs page, locate the failed job, click**Manage** next to the job, and click**Retry** to migrate failed files. For more information about FAQs for migration failures, see [Common causes of a migration failure and solutions](../intl.en-US/FAQ/Common causes of a migration failure and solutions.md#).
 
 
 ## Manage synchronization jobs {#section_zyb_v5y_pfb .section}
@@ -62,8 +62,8 @@ Subsequent operations change based on the migration type. You can manage migrati
         -   After a synchronization job is complete, one of the following states for a task is displayed:
             -   Scanning: indicates that a synchronization job is scanning the files of the source data address. The number of scanned files is displayed in the File Count column.
             -   Scan Finished: indicates that a scan is complete. The total number and size of files are display in the File Count and File Size columns, respectively.
-            -   Success: indicate that a synchronization job is complete. The number of synchronized files is displayed. You can click ****![](../DNHCS_MGW18101150/images/33279_en-US.png) next to Completed to download **the list of completed files**.
-            -   Failed: An error may occur when you run a synchronization job. Click **Retry** to resynchronize failed files. You can click ****![](../DNHCS_MGW18101150/images/33279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
+            -   Success: indicate that a synchronization job is complete. The number of synchronized files is displayed. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155737116133279_en-US.png) next to Completed to download **the list of completed files**.
+            -   Failed: An error may occur when you run a synchronization job. Click **Retry** to resynchronize failed files. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155737116133279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
 
 ## More information {#section_oy2_jg4_yfb .section}
 
