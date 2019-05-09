@@ -22,7 +22,7 @@ Subsequent operations change based on the migration type. You can manage differe
     2.  Click **Stop** and ensure that the job is stopped.
     3.  On the Flow Control Time Schedule chart, click **Reset**.
         -   To add a flow control setting, select the appropriate Time Range and Max Flow, and click **Add**.
-        -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155736504330945_en-US.png) next to the flow control setting.
+        -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155737113930945_en-US.png) next to the flow control setting.
         -   To modify a flow control setting, you must first delete the previous setting and add a new flow control setting.
     4.  Click **OK**, and click **Start** to restart the job.
 -   View a migration report
@@ -62,8 +62,8 @@ Subsequent operations change based on the migration type. You can manage differe
         -   After a subtask is complete, only one subtask status is displayed. The status can be one of the following:
             -   Scanning: indicates that a subtask is scanning the files of the source data address. The number of scanned files is displayed in the File Count column.
             -   Scan Finished: indicates that a scan is complete. The total number and size of files are display in the File Count and File Size columns, respectively.
-            -   Success: indicate that a subtask is complete. The number of synchronized files is displayed. You can click ****![](../DNHCS_MGW18101150/images/33279_en-US.png) next to Completed to download **the list of completed files**.
-            -   Failed: An error may occur when you run a subtask. Click **Retry** to resynchronize failed files. You can click ****![](../DNHCS_MGW18101150/images/33279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
+            -   Success: indicate that a subtask is complete. The number of synchronized files is displayed. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155737113933279_en-US.png) next to Completed to download **the list of completed files**.
+            -   Failed: An error may occur when you run a subtask. Click **Retry** to resynchronize failed files. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155737113933279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
 
 ## More information {#section_oy2_jg4_yfb .section}
 
