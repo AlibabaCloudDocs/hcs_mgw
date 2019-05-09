@@ -28,11 +28,11 @@ This section describes what you must do before creating a migration job.
     4.  Click OK to save the generated account, password, AccessKeyID, and AccessKeySecret.
     5.  Select the required user account, click **Add Permissions** to grant the read/write permission \(AliyunOSSFullAccess\) and migration permission \(AliyunMGWFullAccess\) for the RAM user. The Add Permissions dialog is shown in the following figure.
 
-        ![](../DNhcs_mgw1842487/images/21235_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155737027621235_en-US.png)
 
     6.  Choose **OK** \> **Finished**.
     7.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the newly created RAM user to log on to the console.
 
-        ![](../DNhcs_mgw1842487/images/34662_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155737027634662_en-US.png)
 
 
