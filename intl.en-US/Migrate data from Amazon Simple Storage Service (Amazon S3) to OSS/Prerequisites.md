@@ -6,7 +6,7 @@ This section describes what you must do before creating a migration job.
 
 -   Estimate the amount of data to be migrated.
 
-    Estimate the size and the number of files to be migrated. Log on to the Amazon [CloudWatch](https://console.aws.amazon.com/cloudwatch/home) console, select an Amazon S3 bucket to view the size and number of files to be migrated. ![](images/33811_en-US.png)
+    Estimate the size and the number of files to be migrated. Log on to the Amazon [CloudWatch](https://console.aws.amazon.com/cloudwatch/home) console, select an Amazon S3 bucket to view the size and number of files to be migrated.
 
     **Note:** To ensure a successful migration, you must enter the appropriate size and number of files when [creating a migration job](intl.en-US/Migrate data between Alibaba Cloud Object Storage Service (OSS) buckets/Create a migration job.md#section_ksy_xmy_pfb).
 
@@ -29,11 +29,11 @@ AWS S3 whitelists are not supported by Data Transport. If a whitelist is availab
     4.  Click OK to save the generated account, password, AccessKeyID, and AccessKeySecret.
     5.  Select the required user account, click **Add Permissions** to grant the read/write permission \(AliyunOSSFullAccess\) and migration permission \(AliyunMGWFullAccess\) for the RAM user. The Add Permissions dialog is shown in the following figure.
 
-        ![](../DNhcs_mgw1842487/images/21235_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155736999221235_en-US.png)
 
     6.  Choose **OK** \> **Finished**.
     7.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the new RAM user to log on to the console.
 
-        ![](../DNhcs_mgw1842487/images/34662_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155736999234662_en-US.png)
 
 
