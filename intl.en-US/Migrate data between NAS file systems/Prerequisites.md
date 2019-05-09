@@ -28,7 +28,19 @@ If both the source NAS file system and the destination NAS file system are locat
     -   When the source NAS file system and destination NAS file system are owned by different accounts and located in different VPC of the same region, see [Connect VPC networks that are owned by multiple accounts and located in multiple regions](../../../../../intl.en-US/Quick Start/Connect network instances in different regions using different accounts.md#).
 -   If you want to set the access permissions for NAS file systems, you must perform the following steps. You must enable access to the source NAS file system and the destination NAS file system from all IP addresses in respective VPCs where the NAS files systems are located.
 
-## 创建子账号 {#section_xzy_k2y_dgb .section}
+## Create and authorize a RAM user { .section}
 
-为保证您的数据安全，建议使用子账号创建和管理迁移任务，详细配置步骤请参见[创建拥有在线迁移管理权限的子账号](https://help.aliyun.com/knowledge_detail/74863.html)。
+1.  Log on to the [RAM console](https://ram.console.aliyun.com).
+2.  Choose **Identities** \> **Users** \> **Create User**.
+3.  Select **Console Password Logon** and **Programmatic Access** and enter the required User Account Information.
+4.  Click OK to save the generated account, password, AccessKeyID, and AccessKeySecret.
+5.  Select the required user account, click **Add Permissions** to grant the read/write permission \(AliyunOSSFullAccess\) and migration permission \(AliyunMGWFullAccess\) for the RAM user. The Add Permissions dialog is shown in the following figure.
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155738210521235_en-US.png)
+
+6.  Choose **OK** \> **Finished**.
+7.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the newly created RAM user to log on to the console.
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155738210534662_en-US.png)
+
 
