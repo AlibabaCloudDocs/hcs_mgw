@@ -23,21 +23,21 @@
 
 ## 步骤一：迁移存量数据 {#section_dpk_z5j_3gb .section}
 
-1.  创建用于存储迁移数据的 OSS Bucket，详细步骤请参考[创建存储空间](../../../../../cn.zh-CN/控制台用户指南/管理存储空间/创建存储空间.md#)。
+1.  创建用于存储迁移数据的 OSS Bucket，详细步骤请参考[创建存储空间](../../../../intl.zh-CN/控制台用户指南/管理存储空间/创建存储空间.md#)。
 2.  创建用于迁移的子账号 AccessKey：
     -   获取 B 存储服务子账号的 AccessKey：登录云服务控制台获取访问密钥（AccessKey）。
-    -   获取阿里云 OSS子账号的 AccessKey：请参考[创建 RAM 子账号并授予相关权限](../../../../../cn.zh-CN/百度云 BOS 迁移教程/准备工作.md#section_p11_xff_qfb)。
+    -   获取阿里云 OSS子账号的 AccessKey：请参考[创建 RAM 子账号并授予相关权限](../../../../intl.zh-CN/百度云 BOS 迁移教程/准备工作.md#section_p11_xff_qfb)。
 3.  创建数据地址并创建全量迁移任务。详细配置步骤请参见[在线迁移服务](https://help.aliyun.com/product/94157.html)对应教程的迁移实施文档。其中，迁移任务的**任务配置**如下:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/154718316836102_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155736512636102_zh-CN.png)
 
     **性能调优**配置如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/154718316836097_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155736512636097_zh-CN.png)
 
-4.  迁移完成后，需通过[查看迁移报告](../../../../../cn.zh-CN/百度云 BOS 迁移教程/后续操作.md#section_jxv_xty_pfb)，并对比源地址和目的地址的数据，确认数据已经迁移完成。
+4.  迁移完成后，需通过[查看迁移报告](../../../../intl.zh-CN/百度云 BOS 迁移教程/后续操作.md#section_jxv_xty_pfb)，并对比源地址和目的地址的数据，确认数据已经迁移完成。
 
-    **说明：** 若出现文件迁移失败的情况，请参考[迁移失败常见问题及解决方案](../../../../../cn.zh-CN/常见问题/迁移失败常见原因及解决方案.md#)。
+    **说明：** 若出现文件迁移失败的情况，请参考[迁移失败常见问题及解决方案](../../../../intl.zh-CN/常见问题/迁移失败常见原因及解决方案.md#)。
 
 
 ## 步骤二：配置镜像回源 {#section_dw2_jbk_3gb .section}
@@ -49,12 +49,12 @@
 3.  单击**存储设置**，之后单击**镜像回源**区域的**设置**。
 4.  单击**创建规则**，在弹出的**创建规则**对话框填写回源信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/154718316836104_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155736512636104_zh-CN.png)
 
     -   **回源类型**：选择**镜像**。
     -   **回源条件**：默认选择**HTTP 状态码 404**，根据需求选择是否配置**文件名前缀**。
     -   **回源地址**：填写云服务访问地址信息。
-    -   更多参数设置请参考[设置回源规则](../../../../../cn.zh-CN/控制台用户指南/管理存储空间/设置回源规则.md#)。
+    -   更多参数设置请参考[设置回源规则](../../../../intl.zh-CN/控制台用户指南/管理存储空间/设置回源规则.md#)。
     **说明：** 镜像回源可以配置5条，5条规则同时生效。若有多个资源，可以配置多条镜像回源策略，通过设置不同的**文件名前缀**回源不同的数据。
 
 5.  单击**确定**，完成配置。
@@ -69,16 +69,16 @@
 
 1.  根据步骤一的创建迁移任务重新创建一个增量迁移任务。其中，迁移任务的**任务配置**如下:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/154718316836098_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155736512636098_zh-CN.png)
 
     **性能调优**配置如下：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/154718316836101_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155736512636101_zh-CN.png)
 
 2.  单击**创建**，开始执行迁移任务。
-3.  迁移完成后，需通过[查看迁移报告](../../../../../cn.zh-CN/百度云 BOS 迁移教程/后续操作.md#section_jxv_xty_pfb)，并对比源地址和目的地址的数据，确认数据已经迁移完成。
+3.  迁移完成后，需通过[查看迁移报告](../../../../intl.zh-CN/百度云 BOS 迁移教程/后续操作.md#section_jxv_xty_pfb)，并对比源地址和目的地址的数据，确认数据已经迁移完成。
 
-    **说明：** 若出现文件迁移失败的情况，请参考[迁移失败常见问题及解决方案](../../../../../cn.zh-CN/常见问题/迁移失败常见原因及解决方案.md#)。
+    **说明：** 若出现文件迁移失败的情况，请参考[迁移失败常见问题及解决方案](../../../../intl.zh-CN/常见问题/迁移失败常见原因及解决方案.md#)。
 
 
 ## 步骤五：删除源端数据 {#section_ffv_lcr_3gb .section}
