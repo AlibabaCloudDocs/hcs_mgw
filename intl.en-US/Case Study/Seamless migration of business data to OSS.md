@@ -29,11 +29,11 @@ Based on the needs and background information, proceed as follows to migrate dat
     -   To obtain the AccessKey of a RAM user, see [Create and authorize a RAM user](../../../../intl.en-US/Migrate data from Baidu Object Storage (BOS) to OSS/Prerequisites.md#section_p11_xff_qfb).
 3.  Create data addresses and a full migration job. For more information, see [Data Transport](https://www.alibabacloud.com/help/product/94157.htm) documents. Configure the required options on the **Job Config** tab as follows.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155737932236102_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155746974036102_en-US.png)
 
     Configure the required options on the **Performance** tab as follows.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155737932236097_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155746974036097_en-US.png)
 
 4.  To ensure that all data is migrated after migration, you need to [view a migration report](../../../../intl.en-US/Migrate data from Baidu Object Storage (BOS) to OSS/Manage migration jobs.md#section_jxv_xty_pfb) and compare data at both the source data address and the destination data address.
 
@@ -49,7 +49,7 @@ It takes about 25 days to migrate the existing data. During the migration proces
 3.  Select **Basic Settings** and click **Configure** in the **Back-to-Origin** section.
 4.  Click **Create Rule**. In the **Create Rule** dialog box, configure the required options.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155737932236104_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155746974036104_en-US.png)
 
     -   **Mode**: Select **Mirroring**.
     -   **Prerequisite**: **HTTP Status Code 404** is selected by default. You can configure the **File Name Prefix** as needed.
@@ -69,11 +69,11 @@ During the migration of existing data, about 100,000 files that reach a total si
 
 1.  Create an incremental migration job based on the steps described in Step 1. Configure the required options on the **Job Config** tab as follows:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155737932236098_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155746974036098_en-US.png)
 
     Configure the required options on the **Performance** tab as follows:
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155737932336101_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/88193/155746974036101_en-US.png)
 
 2.  Click **Create** to create a migration job.
 3.  To ensure that all data is migrated after migration, you need to [view a migration report](../../../../intl.en-US/Migrate data from Baidu Object Storage (BOS) to OSS/Manage migration jobs.md#section_jxv_xty_pfb) and compare data at both the source data address and the destination data address.
