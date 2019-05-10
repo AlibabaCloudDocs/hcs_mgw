@@ -19,7 +19,7 @@ During a migration job, you can modify flow control settings at any time based o
 2.  Click **Stop** and ensure that the job is stopped.
 3.  On the Flow Control Time Schedule chart, click **Reset**.
     -   To add a flow control setting, select the appropriate Time Range and Max Flow, and click **Add**.
-    -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155746915530945_en-US.png) next to the flow control setting.
+    -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155746939330945_en-US.png) next to the flow control setting.
     -   To modify a flow control setting, you must first delete the previous setting and add a new flow control setting.
 4.  Click **OK** and click **Start** to restart the job.
 
