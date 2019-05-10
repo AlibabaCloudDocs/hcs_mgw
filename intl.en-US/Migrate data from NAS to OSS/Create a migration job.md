@@ -1,6 +1,6 @@
 # Create a migration job {#concept_vhs_qth_yfb .concept}
 
-This section describes how to migrate data.
+This topic describes how to migrate data.
 
 ## Precautions {#section_lfs_tth_yfb .section}
 
