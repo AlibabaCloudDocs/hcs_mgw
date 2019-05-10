@@ -1,6 +1,6 @@
 # Create a migration job {#concept_skk_b2l_qfb .concept}
 
-This section describes the operations and considerations for data migration.
+This topic describes the operations and considerations for data migration.
 
 ## Precautions {#section_lfs_tth_yfb .section}
 
@@ -19,9 +19,9 @@ When creating a migration job, you need to note the following issues:
     |:-----|:-------|:----------|
     |**Data Type**|Yes|Select **Http/Https**.|
     |**Data Name**|Yes|The data name can be 3 to 63 characters in length. Special characters are not supported, except for hyphens \(-\) and underscores \(\_\).|
-    |**File Path**|Yes|Enter oss://\{bucket\}/\{the name of a list file\}.For more information, see [Create a list file](intl.en-US/Migrate data from HTTP__HTTPS sources to OSS/Prerequisites.md#ol_gtr_vzd_qfb).
+    |**File Path**|Yes|Enter oss://\{bucket\}/\{the name of a list file\}. For more information, see [Create a list file](intl.en-US/Migrate data from HTTP__HTTPS sources to OSS/Prerequisites.md#ol_gtr_vzd_qfb).
 
-|
+ |
     |**List Access Endpoint**|Yes|Enter the appropriate endpoint based on the comparison table for regions and endpoints. For more information, see [Regions and endpoints](../../../../intl.en-US/Developer Guide/Endpoint/Regions and endpoints.md#table_z4s_lvy_5db).|
     |**List Access AK and List Access SK**|Yes|Enter an Accesskey that is used to migrate data.|
 
@@ -57,8 +57,8 @@ When creating a migration job, you need to note the following issues:
     |**Job Name**|Yes|The job name can 3 to 63 characters in length and can contain lowercase letters, numbers, and hyphens \(-\). A job name cannot start or end with a hyphen \(-\).|
     |**Source Data Address**|Yes|Select the created source data address.|
     |**Destination Data Address**|Yes|Select a destination data address that you have created.|
-    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. The files at the source data address are disregarded during migration. This occurs if the source files with an earlier update time have the same name, ContentType, and size as the destination files. However, all the other files are migrated.    -   **Full**: performs a full migration. After all of the files are migrated, a migration job is closed. When you perform a full migration job again, the migration service only migrates files that have been changed after the last full migration job.
-|
+    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. The files at the source data address are disregarded during migration. This occurs if the source files with an earlier update time have the same name, ContentType, and size as the destination files. However, all the other files are migrated.     -   **Full**: performs a full migration. After all of the files are migrated, a migration job is closed. When you perform a full migration job again, the migration service only migrates files that have been changed after the last full migration job.
+ |
 
 4.  On the Performance tab, navigate to the **Data Prediction** section, and enter the **Data Size** and **File Count**.
 
