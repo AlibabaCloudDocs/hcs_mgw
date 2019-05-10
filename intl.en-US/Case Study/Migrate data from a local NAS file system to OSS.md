@@ -32,15 +32,15 @@ Based on the needs and background information, you can migrate data as follows:
 1.  Create a RAM user and authorize the user to create migration jobs. Additionally, obtain the AccessKey of the RAM user. For more information, see [Create and authorize a RAM user](../../../../intl.en-US/Migrate data from NAS to OSS/Prerequisites.md#ul_z1k_23n_qfb).
 2.  Create a NAS data address. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#procedure_one). The options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155736914139830_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155746975039830_en-US.png)
 
 3.  Create an OSS data address. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#section_std_hkf_qfb). The options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155736914139831_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155746975039831_en-US.png)
 
 4.  Create a full migration job and configure performance options. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#section_ksy_xmy_pfb). The performance options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155736914139832_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155746975039832_en-US.png)
 
     **Note:** In this case, the customer is migrating data and has no bandwidth needs for other applications. Therefore, no flow control is set. In actual practice, you can set appropriate flow limits based on the usage status of the bandwidth.
 
