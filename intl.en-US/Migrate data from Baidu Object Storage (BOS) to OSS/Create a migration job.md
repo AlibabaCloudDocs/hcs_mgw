@@ -1,6 +1,6 @@
 # Create a migration job {#concept_yr2_3cf_qfb .concept}
 
-This section describes the operations and considerations for data migration.
+This topic describes the operations and considerations for data migration.
 
 ## Considerations {#section_lfs_tth_yfb .section}
 
@@ -20,15 +20,15 @@ When creating a migration job, you must note the following issues:
     |:-----|:-------|:----------|
     |**Data Type**|Yes|Select **Baidu BOS**.|
     |**Data Name**|Yes|The data name can be 3 to 63 characters in length. Special characters are not supported, except for hyphens \(-\) and underscores \(\_\).|
-    |**Endpoint**|Yes|Enter an endpoint.You can use one of the following endpoints:
+    |**Endpoint**|Yes|Enter an endpoint. You can use one of the following endpoints:
 
     -   `http://bj.bcebos.com` \(Beijing\)
     -   `http://gz.bcebos.com` \(Guangzhou\)
     -   `http://su.bcebos.com` \(Suzhou\)
-|
-    |**Bucket**|Yes|The name of a Baidu Object Storage \(BOS\) bucket.You cannot enter an illegal character, such as space, carriage return, and a tab before and after a bucket name.
+ |
+    |**Bucket**|Yes|The name of a Baidu Object Storage \(BOS\) bucket. You cannot enter an illegal character, such as space, carriage return, and a tab before and after a bucket name.
 
-|
+ |
     |**Prefix**|Yes|     -   **Migrate all data**: indicates that all data in a bucket are migrated.
 
 When you migrate all data, you do not need to enter a prefix.
@@ -68,12 +68,12 @@ When you migrate all data, you do not need to enter a prefix.
     |:-----|:-------|:----------|
     |**Job Name**|Yes|The job name can be 3 to 63 characters in length and can contain lowercase letters, numbers, and hyphens \(-\). A job name cannot start or end with a hyphen \(-\).|
     |**Source Data Address**|Yes|Select the new source data address.|
-    |**Destination Data Address**|Yes|Select the new destination data address.**Note:** If the region where the source data address is located is different from the country where the destination data address is located, you can [open a ticket](https://selfservice.console.aliyun.com) to apply for the permission of creating a cross-country migration job. You must ensure that your business is legitimate, data transit conforms to local rules and regulations, and that the data does not include illegal information.
+    |**Destination Data Address**|Yes|Select the new destination data address. **Note:** If the region where the source data address is located is different from the country where the destination data address is located, you can [open a ticket](https://selfservice.console.aliyun.com) to apply for the permission of creating a cross-country migration job. You must ensure that your business is legitimate, data transit conforms to local rules and regulations, and that the data does not include illegal information.
 
-|
-    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. When the names, ContentType, and size of files at the destination data address are the same as those at the source data address and the files at the destination data address have the latest update time, these files are disregarded during migration. However, the other files are migrated.    -   **Full**: You can specify the **Start Time Point of File**. The files whose last modification time is later than the specified start time are migrated. After all of the files are migrated, a migration job is closed.**** When you perform a full migration job again, Data Transport only migrates files that have been changed after the last full migration job.
+ |
+    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. When the names, ContentType, and size of files at the destination data address are the same as those at the source data address and the files at the destination data address have the latest update time, these files are disregarded during migration. However, the other files are migrated.     -   **Full**: You can specify the **Start Time Point of File**. The files whose last modification time is later than the specified start time are migrated. After all of the files are migrated, a migration job is closed.**** When you perform a full migration job again, Data Transport only migrates files that have been changed after the last full migration job.
     -   **Incremental**: You must specify the **Migration Interval** and **Migration Times** to perform an incremental migration job. You must specify the **Start Point Time of File**. The files whose last modification time is later than the specified start time are migrated for the first time.**** After the first migration job is complete, an incremental migration job is performed based on the **Migration Interval**. At the source data address, files that are created or modified between the time when the last migration job started and before the time when this migration starts will be migrated to the destination data address. Assume that you specify N for the Migration Times. A full migration is performed once. In the future, an incremental migration will be performed \(N - 1\) times. For example, you set the Migration Interval to 1 and Migration Times to 5. Additionally, you set the **Start Time Point of File** to 2019/03/05 08:00:00. The present date and time is 2019/03/10 08:00. When you perform a migration job for the first time, Data Transport migrates files whose last modification time is between 2019/03/05 08:00 and 2019/03/10 08:00. Assume that the first migration job requires one hour to complete. The second migration job starts at 2019/03/10 10:00, which is two hours later than 2019/03/10 08:00, the migration job takes one hour, the other hour is consumed by the specified migration interval. When you perform the second migration job, files whose last modification time is between 2019/03/10 08:00 and 2019/03/10 10:00 are migrated. The migration job includes a full migration and four incremental migrations.
-|
+ |
     |**Start Time Point of File**|Yes|     -   All: All files are migrated.
     -   Assign: Files that are created or modified after the specified time are migrated. For example, when you set the Start Time Point of File to 2018/11/01 08:00:00, only files that are created or modified after 2018/11/01 08:00:00 are migrated. The files that are created or modified before the specified time will be disregarded.
  |
