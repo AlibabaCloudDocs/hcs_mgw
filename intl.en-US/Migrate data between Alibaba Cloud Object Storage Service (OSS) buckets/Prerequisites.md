@@ -1,6 +1,6 @@
 # Prerequisites {#concept_igj_s12_qfb .concept}
 
-This section describes what you must do before creating a migration job.
+This topic describes what you must do before creating a migration job.
 
 ## Estimate the amount of data to be migrated {#section_z1p_1df_qfb .section}
 
@@ -20,11 +20,11 @@ Create a destination bucket to store the migrated data. For more information, se
 4.  Click OK to save the generated account, password, AccessKeyID, and AccessKeySecret.
 5.  Select the required user account, click **Add Permissions** to grant the read/write permission \(AliyunOSSFullAccess\) and migration permission \(AliyunMGWFullAccess\) for the RAM user. The Add Permissions dialog is shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155737283421235_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155746937621235_en-US.png)
 
 6.  Choose **OK** \> **Finished**.
 7.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the newly created RAM user to log on to the console.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155737283434662_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155746937634662_en-US.png)
 
 
