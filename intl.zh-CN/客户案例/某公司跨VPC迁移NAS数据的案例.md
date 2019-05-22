@@ -25,15 +25,15 @@ A和B的阿里云NAS均已挂载在阿里云VPC网络下。A的VPC网段是172.1
 1.  在阿里云上创建RAM子账号，授予子账号创建迁移任务的相关权限。配置步骤请参考[创建RAM子账号并授予相关权限](../../../../intl.zh-CN/NAS 迁移至 OSS 教程/准备工作.md#ul_z1k_23n_qfb)。
 2.  创建源NAS数据地址，参数介绍请参考[创建源数据地址](../../../../intl.zh-CN/NAS 之间迁移教程/迁移实施.md#one)，配置详情如下图。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155730550445080_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850500345080_zh-CN.png)
 
 3.  创建目的NAS数据地址，参数介绍请参考[创建目的数据地址](../../../../intl.zh-CN/NAS 之间迁移教程/迁移实施.md#section_jzz_pjj_yfb)，配置详情如下图。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155730550445081_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850500345081_zh-CN.png)
 
 4.  创建一个**数据同步**类型的迁移任务。为了不影响正常工作，每天22:00:00开始数据同步。参数介绍请参考[创建迁移任务](../../../../intl.zh-CN/NAS 之间迁移教程/迁移实施.md#section_ksy_xmy_pfb)。任务配置详情如下图：
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155730550445090_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850500345090_zh-CN.png)
 
     **说明：** 
 
