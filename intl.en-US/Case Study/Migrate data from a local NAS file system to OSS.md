@@ -32,12 +32,15 @@ Based on the needs and background information, you can migrate data as follows:
 1.  Create a RAM user in Alibaba Cloud and grant the RAM user the permission to create migration jobs. Additionally, obtain the AccessKey of the RAM user. For more information, see [Create and authorize a RAM user](../../../../intl.en-US/Migrate data from NAS to OSS/Prerequisites.md#ul_z1k_23n_qfb).
 2.  Create a NAS data address. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#procedure_one). The options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155850639239830_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155850646239830_en-US.png)
 
-3.  Create an OSS data address. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#section_std_hkf_qfb). The options are shown in the following figure.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155850639239831_en-US.png)
+3.  Create an OSS data address. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#section_std_hkf_qfb). The options are shown in the following figure.
+
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155850646239831_en-US.png)
+
 4.  Create a full migration job and configure the required options in the Performance step. For more information about options, see [Migrate data from NAS to OSS](../../../../intl.en-US/Migrate data from NAS to OSS/Create a migration job.md#section_ksy_xmy_pfb). The options that you can configure in the Performance steps are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155850639239832_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/134084/155850646339832_en-US.png)
 
     **Note:** In this case, the entertainment company has no bandwidth needs for other applications while migrating data. Therefore, no flow control is set. In actual practice, you can set appropriate flow limits based on the usage of the bandwidth.
 
