@@ -25,15 +25,15 @@ The NAS file system of Company A and the NAS file system of Branch B are located
 1.  Create a RAM user and grant the RAM user the permission to create migration jobs. For more information, see [Create and authorize a RAM user](../../../../intl.en-US/Migrate data from NAS to OSS/Prerequisites.md#ul_z1k_23n_qfb).
 2.  Create the source NAS data address. For more information about options, see [Create the source data address](../../../../intl.en-US/Migrate data between NAS file systems/Create a migration job.md#one). The options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850500645080_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850516845080_en-US.png)
 
 3.  Create the destination NAS data address. For more information about options, see [Create the destination data address](../../../../intl.en-US/Migrate data between NAS file systems/Create a migration job.md#section_jzz_pjj_yfb). The options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850500645081_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850516945081_en-US.png)
 
 4.  Create a **Sync** migration job. To ensure business continuity, set the daily start time of a synchronization job to 22:00. For more information about options, see [Create a migration job](../../../../intl.en-US/Migrate data between NAS file systems/Create a migration job.md#section_ksy_xmy_pfb). The options are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850500645090_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/156897/155850516945090_en-US.png)
 
     **Note:** 
 
