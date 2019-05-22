@@ -32,19 +32,19 @@ Based on the needs and background information, you can migrate data as follows:
 1.  Create a RAM user in Alibaba Cloud and grant the RAM user the permission to create a migration job. For more information, see [Create and authorize a RAM user](../../../../intl.en-US/Migrate data from NAS to OSS/Prerequisites.md#ul_z1k_23n_qfb).
 2.  Log on to the [Data Transport](https://mgw.console.aliyun.com/#/source?_k=0k9yvg) console by using the RAM user account. Use the information of the local NAS server to create the source data address. For more information about options, see [Create a source data address](../../../../intl.en-US/Migrate data between NAS file systems/Create a migration job.md#one). The configuration details are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850460645626_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850471745626_en-US.png)
 
 3.  Use the information of the Alibaba Cloud NAS file system to create the destination data address. The configuration details are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850460645627_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850471745627_en-US.png)
 
 4.  Create a **full** migration job to migrate data from the NAS server to Alibaba Cloud NAS. For more information about options, see [Create a migration job](../../../../intl.en-US/Migrate data between NAS file systems/Create a migration job.md#section_ksy_xmy_pfb).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850460745630_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850471745630_en-US.png)
 
     The options that you can specify in the Performance step are shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850460745631_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161261/155850471745631_en-US.png)
 
 5.  A migration job requires about two days to complete. To ensure that all data is migrated, you need to [view a migration report](../../../../intl.en-US/Migrate data between NAS file systems/Manage migration jobs.md#ol_fkt_yty_pfb) and compare data at both the source data address and the destination data address.
 
