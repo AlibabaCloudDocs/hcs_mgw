@@ -34,7 +34,7 @@ If you migrate data from various data sources to NAS, refer to the following ste
     -   The name of a file ends with `_total_list`. This file contains a list of total migration files.
     -   The name of a file ends with `_completed_list`. This file contains a list of successful migration files.
     -   The name of a file ends with `_error_list`. This file contains a list of failed migration files.
-3.  At the destination data address, locate the automatically generated aliyun\_mgw\_import\_report/ file folder. The preceding files are included in the folder. You can download and view a detailed list of files. We recommend that you use the [ossbrowser](../../../../intl.en-US/Tools/ossbrowser/Quick start.md#) tool to view these files.
+3.  At the destination data address, locate the automatically generated aliyun\_mgw\_import\_report/ file folder. The preceding files are included in the folder. You can download and view a detailed list of files.
 
     The file formats are as follows:
 
