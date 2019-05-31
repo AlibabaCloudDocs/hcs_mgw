@@ -7,7 +7,24 @@ Subsequent operations change based on the migration type. You can manage differe
 ## Manage full migration and incremental migration jobs {#section_nlf_zyh_ygb .section}
 
 -   **View the status of a migration job** 
+
+    After you create a migration job, only one migration job status is displayed. The status can be one of the following:
+
+    -   Migrating: indicates that data is being migrated. This process takes a while.
+    -   Create Failed: indicates that you failed to create a migration job. You can view the cause of the failure and recreate a migration job.
+    -   Completed: indicates that a migration job is complete. You can view a migration report.
+    -   Failed: indicates that a migration job failed. You can view the migration report and migrate failed files.
 -   **Modify flow control settings** 
+
+    During a migration job, you can modify flow control settings at any time based on your needs.
+
+    1.  In the [Data Transport console](https://mgw.console.aliyun.com/#/job?_k=6w2hbo), choose **Data Online Migration** \> **Migration Jobs**. On the Migration Jobs page, locate a migration job and click **Manage** next to the job.
+    2.  Click **Stop** and ensure that the job is stopped.
+    3.  On the Flow Control Time Schedule chart, click **Reset**.
+        -   To add a flow control setting, select the appropriate Time Range and Max Flow, and click **Add**.
+        -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155930210230945_en-US.png) next to the flow control setting.
+        -   To modify a flow control setting, you must first delete the previous setting and add a new flow control setting.
+    4.  Click **OK** and click **Start** to restart the job.
 -   **View a migration report** 
     1.  On the Migration Jobs page, locate a job and click **Manage** next to the job.
     2.  Click **Generate Migration Report**. After a report is generated, click **Export** to export the report.
@@ -24,8 +41,12 @@ Subsequent operations change based on the migration type. You can manage differe
         -   The file name includes the source data address, file name, file size \(measured in bytes\), and last modified time. This file contains a list of total migration files. The format of a source data address is `nas://<the name of a mount point>:/<prefix>/<objectName>`. For example, `nas://0a28888892-afr82.cn-hangzhou.nas.aliyuncs.com:/myprefix/testfile.txt`.
         -   The file name includes the file name, file size \(measured in bytes\), checksum \(CRC64\), and migration completion time. This file contains a list of successful migration files.
         -   The file name includes the file name, migration start time, migration end time, and error description. This file contains a list of failed migration files.
+-   **Retry after a migration failure** 
 
-## Manage synchronization jobs { .section}
+    If a migration job failed, you can view the generated file whose name ends with \_error\_list to find the causes of failure and troubleshoot the issue. On the Migration Jobs page, locate the failed job, click**Manage** next to the job, and click**Retry** to migrate failed files. For more information about FAQs for migration failures, see [Common causes of a migration failure and solutions](../intl.en-US/FAQ/Common causes of a migration failure and solutions.md#).
+
+
+## Manage synchronization jobs {#section_6zl_lqc_rvs .section}
 
 -   View the status of a synchronization job
 
