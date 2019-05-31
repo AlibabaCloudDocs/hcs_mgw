@@ -10,21 +10,19 @@ Estimate the size and the number of files to be migrated. Log on to the [Object 
 
 ## Create a destination bucket {#section_p11_xff_qfb .section}
 
-Create a destination bucket to store the migrated data. For more information, see [Create a bucket](../../../../intl.en-US/Quick Start/Create a bucket.md#).
-
 ## Create and authorize a RAM user {#section_oss_y3f_qfb .section}
 
 1.  Log on to the [RAM console](https://ram.console.aliyun.com).
 2.  Choose **Identities** \> **Users** \> **Create User**.
-3.  Select **Console Password Logon** and **Programmatic Access** and enter the required User Account Information.
+3.  Select **Console Password Logon** and **Programmatic Access** and then enter the required User Account Information.
 4.  Click OK to save the generated account, password, AccessKeyID, and AccessKeySecret.
 5.  Select the required user account, click **Add Permissions** to grant the read/write permission \(AliyunOSSFullAccess\) and migration permission \(AliyunMGWFullAccess\) for the RAM user. The Add Permissions dialog is shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155746937621235_en-US.png)
+    ![](../DNhcs_mgw1849439/../DNhcs_mgw1842487/images/21235_en-US.png)
 
 6.  Choose **OK** \> **Finished**.
 7.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the newly created RAM user to log on to the console.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155746937634662_en-US.png)
+    ![](../DNhcs_mgw1849439/../DNhcs_mgw1842487/images/34662_en-US.png)
 
 
