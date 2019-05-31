@@ -10,6 +10,8 @@ Estimate the size and the number of files to be migrated. Log on to the [Object 
 
 ## Create a destination bucket {#section_p11_xff_qfb .section}
 
+Create a destination bucket, which is used to store the migrated data. For more information, see [Create a bucket](../intl.en-US/Quick Start/Create a bucket.md#).
+
 ## Create and authorize a RAM user {#section_oss_y3f_qfb .section}
 
 1.  Log on to the [RAM console](https://ram.console.aliyun.com).
