@@ -6,7 +6,7 @@ This topic describes the operations and considerations for data migration.
 
 When creating a migration job, you must note the following issues:
 
--   A migration job occupies the network resources of the source data address and the destination data address. To ensure business continuity, we recommend that you specify a speed limit for a migration job or perform the migration job during off-peak hours.
+-   A migration job occupies the network resources of the source data address and destination data address. To ensure business continuity, we recommend that you specify a speed limit for a migration job or perform the migration job during off-peak hours.
 -   Before a migration job is performed, files at both the source data address and the destination data address are checked. The files at the destination data address are overwritten during a migration job. This occurs if the source files have the same name as the destination files, but have a later update time. If two files have the same name but different content, you must change the name of one file or back up the files.
 -   With Data Transport, you can only migrate data of a single bucket rather than all data in an account at a time.
 
@@ -44,7 +44,7 @@ When you migrate all data, you do not need to enter a prefix.
     |**Type**|Yes|Select **OSS**.|
     |**Data Region**|Yes|Select a region where the destination data address is located.|
     |**Data Name**|Yes|The data name can be 3 to 63 characters in length. Special characters are not supported, except for hyphens \(-\) and underscores \(\_\).|
-    |**OSS Endpoint**|Yes|Select an endpoint based on the region where data is located. For more information, see [Endpoints](../../../../intl.en-US/Developer Guide/Endpoint/Regions and endpoints.md#).|
+    |**OSS Endpoint**|Yes|Select an endpoint based on the region where data is located. For more information, see [Endpoints](../../../../../intl.en-US/Developer Guide/Endpoint/Regions and endpoints.md#).|
     |**AccessKeyId and AccessKeySecret**|Yes|Enter an AccessKey that is used to migrate data. For more information, see [Create an AccessKey](intl.en-US/Migrate data from HTTP__HTTPS sources to OSS/Prerequisites.md#ak).|
     |**OSS Bucket**|Yes|Select a bucket to store migration data.|
     |**OSS Prefix**|No|An OSS prefix cannot start with a forward slash \(/\) and must end with a forward slash \(/\). For example: `data/to/oss/`. If you want to store data to the root directory of a bucket, you can leave the OSS Prefix field blank.|
@@ -52,7 +52,7 @@ When you migrate all data, you do not need to enter a prefix.
 
 ## Step 3: Create a migration job {#section_ksy_xmy_pfb .section}
 
-1.  Select **Data Online Migration** \> **Migration Jobs** and click **Create Job**.
+1.  Choose **Data Online Migration** \> **Migration Jobs** and click **Create Job**.
 2.  In the Create Job dialog box, read the Terms of Data Transport, select **I understand the above terms and conditions, activate Data Transport**, and then click **Next**.
 3.  In the Create Job dialog box, set the required options and click **Next**.
 
@@ -78,9 +78,9 @@ When you migrate all data, you do not need to enter a prefix.
 
     **Note:** To ensure a successful migration, you must accurately estimate the amount of data to be migrated. For more information, see [Estimate the amount of data to be migrated](intl.en-US/Migrate data from Azure Blob to OSS/Prerequisites.md#ul_srn_mnm_qfb).
 
-5.  This step is optional. On the Performance tab, navigate to the **Flow Control** area and set the **Time Range** and **Max Flow**, and then click **Add**.
+5.  This step is optional. On the Performance tab, navigate to the **Flow Control** area and set the **Time Range** and the **Max Flow**, and then click **Add**.
 
-    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and the **Max Flow** based on the fluctuation of visits. The default value of the **Time Range** is 06:00 - 12:00. The default value of the **Max Flow** is 5 MB/s.
+    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and **Max Flow** based on the fluctuation of visits.
 
 6.  Click **Create**. Wait until a migration job is complete.
 
