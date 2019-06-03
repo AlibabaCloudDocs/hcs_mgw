@@ -7,7 +7,24 @@ Subsequent operations change based on the migration type. You can manage migrati
 ## Manage full migration and incremental migration jobs {#section_nlf_zyh_ygb .section}
 
 -   **View the status of a migration job** 
+
+    After you create a migration job, only one migration job status is displayed. The status can be one of the following:
+
+    -   Migrating: indicates that data is being migrated. This process takes a while.
+    -   Create Failed: indicates that you failed to create a migration job. You can view the cause of the failure and recreate a migration job.
+    -   Completed: indicates that a migration job is complete. You can view a migration report.
+    -   Failed: indicates that a migration job failed. You can view the migration report and migrate failed files.
 -   **Modify flow control settings** 
+
+    During a migration job, you can modify flow control settings at any time based on your needs.
+
+    1.  In the [Data Transport console](https://mgw.console.aliyun.com/#/job?_k=6w2hbo), choose **Data Online Migration** \> **Migration Jobs**. On the Migration Jobs page, locate a migration job and click **Manage** next to the job.
+    2.  Click **Stop** and ensure that the job is stopped.
+    3.  On the Flow Control Time Schedule chart, click **Reset**.
+        -   To add a flow control setting, select the appropriate Time Range and Max Flow, and click **Add**.
+        -   To delete a flow control setting, click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40521/155953295430945_en-US.png) next to the flow control setting.
+        -   To modify a flow control setting, you must first delete the previous setting and add a new flow control setting.
+    4.  Click **OK** and click **Start** to restart the job.
 -   **View a migration report** 
     1.  On the Migration Jobs page, locate a job and click **Manage** next to the job.
     2.  Click **Generate Migration Report**. After a report is generated, click **Export** to export the report.
@@ -45,8 +62,8 @@ Subsequent operations change based on the migration type. You can manage migrati
         -   After a synchronization job is complete, one of the following states for a task is displayed:
             -   Scanning: indicates that a synchronization job is scanning the files of the source data address. The number of scanned files is displayed in the File Count column.
             -   Scan Finished: indicates that a scan is complete. The total number and size of files are display in the File Count and File Size columns, respectively.
-            -   Success: indicate that a synchronization job is complete. The number of synchronized files is displayed. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953286033279_en-US.png) next to Completed to download **the list of completed files**.
-            -   Failed: An error may occur when you run a synchronization job. Click **Retry** to resynchronize failed files. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953286033279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
+            -   Success: indicate that a synchronization job is complete. The number of synchronized files is displayed. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953295433279_en-US.png) next to Completed to download **the list of completed files**.
+            -   Failed: An error may occur when you run a synchronization job. Click **Retry** to resynchronize failed files. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953295433279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
 
 ## More information {#section_oy2_jg4_yfb .section}
 
