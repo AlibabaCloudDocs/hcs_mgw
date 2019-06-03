@@ -1,6 +1,6 @@
 # Create a migration job {#concept_yr2_3cf_qfb .concept}
 
-This section describes the operations and considerations for data migration.
+This topic describes the operations and considerations for data migration.
 
 ## Precautions {#section_lfs_tth_yfb .section}
 
@@ -8,7 +8,7 @@ When creating a migration job, you must note the following issues:
 
 -   A migration job occupies the network resources of the source data address and destination data address. To ensure business continuity, we recommend that you specify a speed limit for a migration job or perform the migration job during off-peak hours.
 -   Before a migration job is performed, files at both the source data address and the destination data address are checked. The files at the destination data address are overwritten during a migration job. This occurs if the source files have the same name as the destination files, but have a later update time. If two files have the same name but different content, you must change the name of one file or back up the files.
--   If you migrate a symbolic link file at the source data address, an actual file that refers to the symbolic link file is migrated and renamed. The new name is the same as that of the original symbolic link file. For example, a symbolic link file named a exists at source data address A. The actual file that the symbolic link refers to is b.jpg. During migration, b.jpg is migrated to the destination data address and renamed a. For more information about symbolic link files, see [Set a symbolic link](../../../../intl.en-US/Console User Guide/Manage objects/Set a symbolic link.md#).
+-   If you migrate a symbolic link file at the source data address, an actual file that refers to the symbolic link file is migrated and renamed. The new name is the same as that of the original symbolic link file. For example, a symbolic link file named a exists at source data address A. The actual file that the symbolic link refers to is b.jpg. During migration, b.jpg is migrated to the destination data address and renamed a. For more information about symbolic link files, see [Set a symbolic link](../../../../intl.en-US/Console User Guide/Upload、download and manage objects/Set a symbolic link.md#).
 
     **Note:** When symbolic link files exist during migration, the size of files may be greater than estimated. Migration progress may exceed 100%. You can evaluate the actual progress based on the size of migrated files.
 
@@ -67,7 +67,7 @@ The procedure used to create a source data address is the same as that used to c
 
 5.  This step is optional. On the Performance tab, navigate to the **Flow Control** area and set the **Time Range** and the **Max Flow**, and then click **Add**.
 
-    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and **Max Flow** based on the fluctuation of visits. The default value of the **Time Range** is 06:00 - 12:00. The default value of the **Max Flow** is 5 MB/s.
+    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and **Max Flow** based on the fluctuation of visits.
 
 6.  Click **Create**. Wait until a migration job is complete.
 
