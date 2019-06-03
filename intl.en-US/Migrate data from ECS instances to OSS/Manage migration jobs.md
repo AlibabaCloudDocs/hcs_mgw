@@ -45,8 +45,8 @@ Subsequent operations change based on the migration type. You can manage migrati
         -   After a synchronization job is complete, one of the following states for a task is displayed:
             -   Scanning: indicates that a synchronization job is scanning the files of the source data address. The number of scanned files is displayed in the File Count column.
             -   Scan Finished: indicates that a scan is complete. The total number and size of files are display in the File Count and File Size columns, respectively.
-            -   Success: indicate that a synchronization job is complete. The number of synchronized files is displayed. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953194633279_en-US.png) next to Completed to download **the list of completed files**.
-            -   Failed: An error may occur when you run a synchronization job. Click **Retry** to resynchronize failed files. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953194633279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
+            -   Success: indicate that a synchronization job is complete. The number of synchronized files is displayed. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953260533279_en-US.png) next to Completed to download **the list of completed files**.
+            -   Failed: An error may occur when you run a synchronization job. Click **Retry** to resynchronize failed files. You can click ****![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65251/155953260533279_en-US.png) next to Failed to download the **list of failed files**. Based on the list, you can view the details of failed files, such as deleted or lost source files.
 
 ## More information {#section_oy2_jg4_yfb .section}
 
