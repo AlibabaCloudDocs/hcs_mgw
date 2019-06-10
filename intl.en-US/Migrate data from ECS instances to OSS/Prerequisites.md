@@ -1,6 +1,6 @@
 # Prerequisites {#concept_uwx_4th_yfb .concept}
 
-This section describes what you need to do before creating a migration job.
+This topic describes what you need to do before creating a migration job.
 
 ## ECS instances {#section_hr3_k1t_2gb .section}
 
@@ -24,26 +24,27 @@ On an ECS instance, you can use the following steps to share folders:
         **Warning:** To ensure data security, disable access to the port of the NFS service by external networks.
 
 
-## Alibaba Cloud Object Storage Service {#section_pvq_r3l_qfb .section}
+## Alibaba Cloud Object Storage Service {#section_adi_x71_a2p .section}
 
--   Create a bucket
+-   Create a destination bucket.
 
-    Create the target bucket that is used to store migrated data For more information, see [Create a bucket](../intl.en-US/Quick Start/Create a bucket.md#).
+    Create a destination bucket, which is used to store the migrated data. For more information, see [Create a bucket](../intl.en-US/Quick Start/Create a bucket.md#).
 
 -   Create and authorize a RAM user
     1.  Log on to the [RAM console](https://ram.console.aliyun.com).
     2.  Choose **Identities** \> **Users** \> **Create User**.
-    3.  Select **Console Password Logon** and **Programmatic Access** and enter the required User Account Information.
+    3.  Select **Console Password Logon** and **Programmatic Access** and then enter the required User Account Information.
     4.  Click OK to save the generated account, password, AccessKeyID, and AccessKeySecret.
     5.  Select the required user account, click **Add Permissions** to grant the read/write permission \(AliyunOSSFullAccess\) and migration permission \(AliyunMGWFullAccess\) for the RAM user. The Add Permissions dialog is shown in the following figure.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155736507921235_en-US.png)
+        ![](../DNhcs_mgw1849439/../DNhcs_mgw1842487/images/21235_en-US.png)
 
-    6.  Choose **OK** \> **Finished**.
-    7.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the newly created RAM user to log on to the console.
+    6.  In the left-side navigation pane, select **Overview**, click the link in the **RAM user logon** section, and enter the username and password of the newly created RAM user to log on to the console.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/40745/155736507934662_en-US.png)
+        ![](../DNhcs_mgw1849439/../DNhcs_mgw1842487/images/34662_en-US.png)
 
+
+## Alibaba Cloud Object Storage Service {#section_pvq_r3l_qfb .section}
 
 ## Appendix: How to use NFS {#section_o2g_5l4_1gb .section}
 
@@ -52,32 +53,30 @@ Before using NFS, you need to start the NFS service and enable access to the por
 -   Assume that you need to share the /data folder as the source data address. Proceed as follows:
     1.  Enable the NFS file system.
 
-        ```
+        ``` {#codeblock_cez_eqv_qq5}
         [root@test ~]# yum install -y nfs-utils
         ```
 
-    2.  Share the /data folder. In the /etc/exports file, add /data \*\(rw,no\_root\_squash\).
+    2.  Share the /data folder. In the /etc/exports file, add /data \*\(rw,no\_root\_squash,insecure\).
 
-        ```
+        ``` {#codeblock_s5s_ev4_f2a}
         [root@test ~]# vi /etc/exports
         
         #If the port number of mountd is greater than 1024, you need to add the insecure parameter.
-        #/data * (rw,no_root_squash,insecure),
-        /data *(rw,no_root_squash)
+        /data * (rw,no_root_squash,insecure)
         
-        
-        
+        								
         ```
 
     3.  Start the NFS service.
 
-        ```
+        ``` {#codeblock_m3t_dpx_00l}
         [root@localhost ~]#systemctl start nginx.service
         ```
 
     4.  View the status of the NFS service. The following status indicates that the service is running.
 
-        ```
+        ``` {#codeblock_luq_7wi_mgi}
         [root@localhost ~]#systemctl status nginx.service
         â— nfs-server.service - NFS server and services
         Loaded: loaded (/usr/lib/systemd/system/nfs-server.service; disabled; vendor preset: disabled)
@@ -96,13 +95,13 @@ Before using NFS, you need to start the NFS service and enable access to the por
 
     5.  Enable the service to run at startup.
 
-        ```
+        ``` {#codeblock_bxw_wk8_vyw}
         [root@localhost ~]# systemctl enable nginx.service
         ```
 
     6.  View the status of the rpcbind service. The following status indicates that the service is running.
 
-        ```
+        ``` {#codeblock_83z_n5f_52i}
         [root@test ~]# systemctl status rpcbind.service
         â— rpcbind.service - RPC bind service
         Loaded: loaded (/usr/lib/systemd/system/rpcbind.service; enabled; vendor preset: enabled)
@@ -120,7 +119,7 @@ Before using NFS, you need to start the NFS service and enable access to the por
 -   Firewalld is used by default for ECS instances that run CentOS 7. You can use the systemctl status firewalld command to check whether firewalld is enabled. If you are using iptables, use the related iptables commands to enable access to the ports \(that are required by NFS\) based on the following firewalld settings. Configure firewalld as follows:
     1.  View the list of enabled ports that are required for NFS.
 
-        ```
+        ``` {#codeblock_x4t_8dw_0ov}
         [root@test ~]# rpcinfo -p localhost
            program vers proto   port  service
             100000    4   tcp    111  portmapper
@@ -159,7 +158,7 @@ Before using NFS, you need to start the NFS service and enable access to the por
         -   Open the /etc/sysconfig/nfs file, replace xxx with a port number in the `MOUNTD_PORT=xxx` expression to specify a fixed port number for the `mountd` service.
     3.  Add the following firewall rules:
 
-        ```
+        ``` {#codeblock_l8t_3eb_yh2}
         [root@test ~]# firewall-cmd --zone=public --add-port=111/tcp --permanent
         success
         [root@test ~]# firewall-cmd --zone=public --add-port=20048/tcp --permanent
@@ -176,7 +175,7 @@ Before using NFS, you need to start the NFS service and enable access to the por
 
     4.  Update firewall rules.
 
-        ```
+        ``` {#codeblock_4tw_blu_bzr}
         [root@test ~]# firewall-cmd --reload
         success
         ```
