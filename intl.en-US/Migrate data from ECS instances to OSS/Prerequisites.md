@@ -63,7 +63,7 @@ Before using NFS, you need to start the NFS service and enable access to the por
         [root@test ~]# vi /etc/exports
         
         #If the port number of mountd is greater than 1024, you need to add the insecure parameter.
-        /data * (rw,no_root_squash,insecure)
+        /data *(rw,no_root_squash,insecure)
         
         								
         ```
