@@ -1,17 +1,17 @@
 # Create a migration job {#concept_ryz_pjj_yfb .concept}
 
-This section describes the operations and considerations for data migration.
+This topic describes the operations and considerations for data migration.
 
 ## Precautions {#section_lfs_tth_yfb .section}
 
 When creating a migration job, you need to note the following issues:
 
--   A migration job occupies the network resources of the source data address and the destination data address. To ensure business continuity, we recommend that you specify a speed limit for a migration task or perform the migration task during an off-peak period.
--   Before a migration task is performed, files at both the source data address and the destination data address are checked. If files at the source data address have the same names as those at the destination data address and have a later update time than those at the destination data address, the files at the destination data address are overwritten during a migration task. If the content for two files is different, you must change the name of one of the files and back up these files.
+-   A migration job occupies the network resources of the source data address and destination data address. To ensure business continuity, we recommend that you specify a speed limit for a migration job or perform the migration job during off-peak hours.
+-   Before a migration job is performed, files at both the source data address and the destination data address are checked. The files at the destination data address are overwritten during a migration job. This occurs if the source files have the same name as the destination files, but have a later update time. If two files have the same name but different content, you must change the name of one file or back up the files.
 
 ## Step 1: Create a source data address {#one .section}
 
-1.  Log on to the [Data Migration Service console](https://mgw.console.aliyun.com/#/job?_k=6w2hbo).
+1.  Log on to the [Data Transport console](https://mgw.console.aliyun.com/#/job?_k=6w2hbo).
 2.  Choose **Data Online Migration** \> **Data Address**, and then click **Create Data Address**.
 3.  In the Create Data Address dialog box, set the required options and click **OK**. The options are described as follows:
 
@@ -34,7 +34,7 @@ When creating a migration job, you need to note the following issues:
 
     **Note:** For more information about the status of a data address after you create it, see [Data address status](#).
 
-4.  You are required to apply for whitelist permissions because this feature is in the beta testing phase. Click **Application**.
+4.  You must apply for whitelist permissions because this feature is still in the beta testing phase. Click **Application**.
 5.  Enter the required information and submit the beta testing application for migration. After the application has been approved, you will receive an SMS notification.
 
 ## Step 2: Create a destination data address {#section_jzz_pjj_yfb .section}
@@ -47,7 +47,7 @@ When creating a migration job, you need to note the following issues:
     |**Data Type**|Yes|Select **OSS**.|
     |**Data Region**|Yes|Select a region where the destination data address is located.|
     |**Data Name**|Yes|Enter 3 to 63 characters. Special characters, except for hyphens \(-\) and underscores \(\_\), are not supported.|
-    |**OSS Endpoint**|Yes|Select an endpoint based on the region where data is located. For more information, see [Endpoints](../../../../intl.en-US/Developer Guide/Endpoint/Regions and endpoints.md#).|
+    |**OSS Endpoint**|Yes|Select an endpoint based on the region where data is located. For more information, see [Endpoints](../../../../../intl.en-US/Developer Guide/Endpoint/Regions and endpoints.md#).|
     |**AccessKeyId and AccessKeySecret**|Yes|Enter an AccessKey that is used to migrate data. For more information, see [Create an AccessKey](intl.en-US/Migrate data from ECS instances to OSS/Prerequisites.md#ak).|
     |**OSS Bucket**|Yes|Select a bucket to store migration data.|
     |**OSS Prefix**|No|An OSS prefix cannot start with a forward slash \(/\) and must end with a forward slash \(/\). For example: `data/to/oss/`. If you want to store data to the root directory of a bucket, you can leave the OSS Prefix field blank.|
@@ -55,8 +55,8 @@ When creating a migration job, you need to note the following issues:
 
 ## Step 3: Create a migration job {#section_ksy_xmy_pfb .section}
 
-1.  Select **Data Online Migration** \> **Migration Jobs** and click **Create Job**.
-2.  In the Create Job dialog box, read the Terms of Migration Service, select **I understand the above terms and conditions, and activate Data Migration Service**, and then click **Next**.
+1.  Choose **Data Online Migration** \> **Migration Jobs** and click **Create Job**.
+2.  In the Create Job dialog box, read the Terms of Data Transport, select **I understand the above terms and conditions, activate Data Transport**, and then click **Next**.
 3.  In the Create Job dialog box, set the required options and click **Next**.
 
     The options are described as follows:
@@ -68,12 +68,15 @@ When creating a migration job, you need to note the following issues:
     |**Destination Data Address**|Yes|Select the created destination data address. **Note:** If the region where the source data address is located is different from the region where the destination data address is located, you can [open a ticket](https://selfservice.console.aliyun.com) to apply for the permission of creating a cross-region migration job. You must ensure that your business is legitimate, data transit conforms to local rules and regulations, and that the data does not include illegal information.
 
  |
-    |**Migration Type**|Yes|Before you start a migration job, the migration service compares files of the source data address with those of the destination data address. When the names of files at the destination data address are the same as those at the source data address and the files at the destination data address have the latest update time, these files are disregarded during migration. However, the other files are migrated.     -   **Full**: You can specify the **Start Time Point of File**. Files whose last modified time is later than the specified start time are migrated. After all of the files are migrated, a migration job is closed.**** When you perform a full migration job again, the migration service only migrates files that have been changed after the last full migration job.
-    -   **Incremental**: You must specify the **Migration Interval** and **Migration Times** to perform an incremental migration job. You must specify the **Start Point Time of File**. Files whose last modified time is later than the specified start time are migrated for the first time.**** After the first migration job is complete, an incremental migration job is performed based on the **Migration Interval**. At the source data address, files that are created or modified between the time when the last migration job started and before the time when this migration starts will be migrated to the destination data address. Assume that you specify N for the Migration Times. A full migration is performed once. In the future, an incremental migration will be performed \(N - 1\) times. For example, you set the Migration Interval to 1 and Migration Times to 5. Additionally, you set the **Start Time Point of File** to 03/05/2019 08:00:00. The present time is at 03/10/2019 08:00. When you perform a migration job for the first time, the migration service migrates files whose last modified time is between 03/05/2019 08:00 and 03/10/2019 08:00. Assume that the first migration job is completed in one hour. The second migration job starts at 03/10/2019 10:00, which is two hours later than 03/10/2019 08:00, the migration job takes one hour, the other hour is consumed by the specified migration interval. When you perform the second migration job, files whose last modified time is between 03/10/2019 08:00 and 03/10/2019 10:00 are migrated. The migration job includes a full migration and four incremental migrations.
-    -   **Sync**: You can synchronize data from the source data address to the destination data address. A synchronization job continuously runs based on the specified **Synchronization Interval** until you manually stop the job. When you perform a synchronization for the first time, files are synchronized based on the **Start Time Point of File**. After the first synchronization is completed, files that are created or modified after the start time of the last synchronization will be synchronized after the specified synchronization interval. Fox example, you perform the first synchronization at 11/01/2018 08:00. For the second synchronization, files that are created or modified after 11/01/2018 08:00 are synchronized.
+    |**Migration Type**|Yes|     -   **Full**: You can specify the **Start Time Point of File**. ****If the last modification time of files is later than the specified start time, these files are migrated. After all of the files are migrated, a migration job is closed. When you repeat a full migration job, Data Transport only migrates files that have been changed.
+    -   **Incremental**: You must specify the **Migration Interval** and **Migration Times** to perform an incremental migration job. You must specify the **Start Point Time of File**. ****If the last modification time of files is later than the specified start time, all the files are migrated during the first migration. After the first migration is complete, an incremental migration is performed based on the **Migration Interval**. An incremental migration job only migrates files that are created or modified between the time when the last migration job started and before the time when this migration starts. Assume that you specify N for the Migration Times. Full migration is performed once. Incremental migration will be performed \(N - 1\) times. For example, you can set the Migration Interval to 1 and Migration Times to 5. Additionally, you can set the **Start Time Point of File** to 2019/03/05 08:00. The present date and time is 2019/03/10 08:00. When the first migration starts, Data Transport migrates files that have the last modification time between 2019/03/05 08:00 and 2019/03/10 08:00. Assume that the first migration requires one hour to complete. The second migration starts at 2019/03/10 10:00, which is two hours later than 2019/03/10 08:00. The first migration takes one hour, and the other hour is consumed by the specified migration interval. During the second migration, if the last modification time of files is between 2019/03/10 08:00 and 2019/03/10 10:00, these files are migrated. The migration job includes a full migration and four incremental migrations.
+    -   **Sync**: You can synchronize data from the source data address to the destination data address. A synchronization job continues to run based on the specified **Synchronization Interval** until you manually stop the job. When a synchronization job is performed for the first time, files are synchronized based on the **Start Time Point of File**. After the first synchronization is complete, files that are created or modified after the start time of the last synchronization will be synchronized when the specified synchronization interval ends. For example, the first synchronization is performed at 2018/11/01 08:00. For the second synchronization, files that are created or modified after 2018/11/01 08:00 are synchronized.
+ **Note:** 
 
-**Note:** You can select **Sync** when the source data address and the destination data address are located in the same region. When the source data address and the destination data address are not located in the same region, you cannot select this option.
-
+    -   You can select **Sync** when the source data address and the destination data address are located in the same region. When the source data address and the destination data address are not located in the same region, you cannot select this option.
+    -   Before you start a full migration job or an incremental migration job, Data Transport compares files of the source data address with those of the destination data address. If a source file has the same name as a destination file, the destination file is overwritten when at least one of the following conditions is met:
+        -   The source file has a later modification time.
+        -   The size of the source file is different from that of the destination file.
  |
     |**Start Time Point of File**|Yes \(only for Full and Incremental\)|     -   All: All files are migrated.
     -   Assign: Files that are created or modified after the specified time are migrated. For example, when you set the Start Time Point of File to 11/01/2018 08:00:00, only files that are created or modified after 11/01/2018 08:00:00 are migrated. Files that are created or modified before the specified time will be skipped.
@@ -102,9 +105,9 @@ When creating a migration job, you need to note the following issues:
 
 5.  This step is optional. On the Performance tab, navigate to the **Flow Control** area and set the **Time Range** and the **Max Flow**, and then click **Add**.
 
-    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and the **Max Flow** based on the fluctuation of visits.
+    **Note:** To ensure business continuity, we recommend that you set the **Time Range** and **Max Flow** based on the fluctuation of visits.
 
-6.  Click **Create**. Wait for a while until a migration job is completed.
+6.  Click **Create**. Wait until a migration job is complete.
 
 ## View the status of a data address {#status .section}
 
