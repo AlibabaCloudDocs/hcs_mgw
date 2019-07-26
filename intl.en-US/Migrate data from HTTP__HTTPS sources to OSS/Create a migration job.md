@@ -57,7 +57,12 @@ When creating a migration job, you need to note the following issues:
     |**Job Name**|Yes|The job name can 3 to 63 characters in length and can contain lowercase letters, numbers, and hyphens \(-\). A job name cannot start or end with a hyphen \(-\).|
     |**Source Data Address**|Yes|Select the created source data address.|
     |**Destination Data Address**|Yes|Select a destination data address that you have created.|
-    |**Migration Type**|Yes|Before you start a migration job, Data Transport compares files of the source data address with those of the destination data address. The files at the source data address are disregarded during migration. This occurs if the source files with an earlier update time have the same name, ContentType, and size as the destination files. However, all the other files are migrated.     -   **Full**: performs a full migration. After all of the files are migrated, a migration job is closed. When you perform a full migration job again, the migration service only migrates files that have been changed after the last full migration job.
+    |**Migration Type**|Yes|     -   **Full**: performs a full migration. After all of the files are migrated, a migration job is closed. When you perform a full migration job again, the migration service only migrates files that have been changed after the last full migration job.
+ **Note:** Before you start a full migration job , Data Transport compares files of the source data address with those of the destination data address. If a source file has the same name as a destination file, the destination file is overwritten when at least one of the following conditions is met:
+
+    -   Content-Type of the source file is different from that of the destination file.
+    -   The source file has a later modification time.
+    -   The size of the source file is different from that of the destination file.
  |
 
 4.  On the Performance tab, navigate to the **Data Prediction** section, and enter the **Data Size** and **File Count**.
