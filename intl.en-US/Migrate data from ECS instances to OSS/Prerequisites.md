@@ -1,30 +1,32 @@
 # Prerequisites {#concept_uwx_4th_yfb .concept}
 
-This topic describes what you need to do before creating a migration job.
+This topic describes what you need to prepare before migration.
 
 ## ECS instances {#section_hr3_k1t_2gb .section}
 
-On an ECS instance, you can use the following steps to share folders:
+On an ECS instance, you can perform the following steps to share a folder:
 
--   Windows
+**Note:** You can only migrate data from an ECS instance that is located in a VPC rather than a classic network by using Data Transport.
 
-    If Windows is running on the instance, proceed as follows:
+-   For instances running Windows
 
-    1.  Place data to be migrated in a folder and share the folder. Follow the version-specific instructions to share a folder.
-    2.  Modify the settings of Windows Defender Firewall and anti-virus software to enable access to port 445 of the instance \(by all IP addresses in the VPC where the instance is located\). Skip this step if both Windows Defender Firewall and anti-virus software are disabled.
-    3.  Add ECS [security group rules](../../../../../intl.en-US/Security/Security groups/Add security group rules.md#) to enable access to port 445 of the instance by all IP addresses in a VPC where the instance is located.
--   Linux
+    If Windows is running on an ECS instance, you can perform the following steps to share a folder:
 
-    If Linux is running on the instance, proceed as follows:
+    1.  Move data to be migrated to a folder and share the folder. We recommend that you follow version-specific instructions to share a folder.
+    2.  Modify the settings of the Windows firewall and anti-virus software to enable access to port 445 of the instance by all IP addresses in the VPC where the instance is located. Skip this step if both the Windows firewall and anti-virus software are disabled.
+    3.  Add ECS [security group rules](../../../../../intl.en-US/Security/Security groups/Add security group rules.md#) to enable access to port 445 of the instance from all IP addresses in the VPC where the instance is located.
+-   For instances running Linux
 
-    1.  Start the NFS service and share the folder to be migrated. For more information, see [Start the NFS service](#). Skip this step if the NFS service is enabled.
-    2.  Modify the settings of Linux firewalls to enable access to the corresponding port of the NFS service. You can use the rpcinfo -p localhostcommand to view the corresponding ports to be enabled of the `portmapper`, `mountd`, and `nfs` services. For more information, see [Firewall settings](#). If firewalls are not enabled, skip this step.
-    3.  Add ECS [security group rules](../../../../../intl.en-US/Security/Security groups/Add security group rules.md#) to enable access to the corresponding port of the NFS service by all IP addresses in a VPC where the instance is located.
+    If Linux is running on an ECS instance, you can perform the following steps to share a folder:
 
-        **Warning:** To ensure data security, disable access to the port of the NFS service by external networks.
+    1.  Start the NFS service and share the folder to be migrated. For more information, see [Start the NFS service](#). Skip this step if the NFS service is started.
+    2.  Modify the settings of the Linux firewall to enable access to the corresponding port of the NFS service. Use the rpcinfo -p localhost command to view the corresponding ports to be enabled of the `portmapper`, `mountd`, and `nfs` services. For more information, see [Firewall settings](#). If the firewall is not enabled, skip this step.
+    3.  Add ECS [security group rules](../../../../../intl.en-US/Security/Security groups/Add security group rules.md#) to enable access to the corresponding port of the NFS service from all IP addresses in the VPC where the instance is located.
+
+        **Warning:** To ensure data security, we recommend that you disable access to the port of the NFS service from external networks.
 
 
-## Alibaba Cloud Object Storage Service {#section_adi_x71_a2p .section}
+## Alibaba Cloud Object Storage Service {#section_kry_7tx_wyu .section}
 
 -   Create a destination bucket.
 
@@ -44,40 +46,43 @@ On an ECS instance, you can use the following steps to share folders:
         ![](../DNhcs_mgw1849439/../DNhcs_mgw1842487/images/34662_en-US.png)
 
 
-## Alibaba Cloud Object Storage Service {#section_pvq_r3l_qfb .section}
+## Appendix: Use NFS {#section_o2g_5l4_1gb .section}
 
-## Appendix: How to use NFS {#section_o2g_5l4_1gb .section}
+Before using NFS, you need to start the NFS service and allow access to the port of the NFS service in the firewall.
 
-Before using NFS, you need to start the NFS service and enable access to the port of the NFS service in the firewall.
-
--   Assume that you need to share the /data folder as the source data address. Proceed as follows:
+-   Assume that you need to share the /data folder as the source data address. You can perform the following steps:
     1.  Enable the NFS file system.
 
-        ``` {#codeblock_cez_eqv_qq5}
+        ``` {#codeblock_8ne_vol_d7g}
         [root@test ~]# yum install -y nfs-utils
         ```
 
-    2.  Share the /data folder. In the /etc/exports file, add /data \*\(rw,no\_root\_squash,insecure\).
+    2.  Share the /data folder. In the /etc/exports file, add the /data \*\(rw,no\_root\_squash,insecure\) entry.
 
-        ``` {#codeblock_s5s_ev4_f2a}
+        ``` {#codeblock_twj_8uo_4fq}
         [root@test ~]# vi /etc/exports
         
         #If the port number of mountd is greater than 1024, you need to add the insecure parameter.
         /data *(rw,no_root_squash,insecure)
-        
         								
         ```
 
+        **Note:** 
+
+        We recommend that you follow the formats required by the /etc/exports file to configure settings. You can use the `man 5 exports` command to view the required formats.
+
+        If a configuration error occurs, the file system fails to be mounted on a client.
+
     3.  Start the NFS service.
 
-        ``` {#codeblock_m3t_dpx_00l}
-        [root@localhost ~]#systemctl start nginx.service
+        ``` {#codeblock_qs5_nyj_snp}
+        [root@test ~]# systemctl start nfs.service
         ```
 
     4.  View the status of the NFS service. The following status indicates that the service is running.
 
-        ``` {#codeblock_luq_7wi_mgi}
-        [root@localhost ~]#systemctl status nginx.service
+        ``` {#codeblock_s57_nyo_t4t}
+        [root@test ~]# systemctl status nfs.service
         â— nfs-server.service - NFS server and services
         Loaded: loaded (/usr/lib/systemd/system/nfs-server.service; disabled; vendor preset: disabled)
         Active: active (exited) since Thu 2018-12-06 15:47:03 CST; 58s ago
@@ -95,20 +100,20 @@ Before using NFS, you need to start the NFS service and enable access to the por
 
     5.  Enable the service to run at startup.
 
-        ``` {#codeblock_bxw_wk8_vyw}
+        ``` {#codeblock_a6y_zfo_4wx}
         [root@localhost ~]# systemctl enable nginx.service
         ```
 
     6.  View the status of the rpcbind service. The following status indicates that the service is running.
 
-        ``` {#codeblock_83z_n5f_52i}
+        ``` {#codeblock_k98_rpd_p36}
         [root@test ~]# systemctl status rpcbind.service
         â— rpcbind.service - RPC bind service
         Loaded: loaded (/usr/lib/systemd/system/rpcbind.service; enabled; vendor preset: enabled)
         Active: active (running) since Thu 2018-12-06 15:47:03 CST; 7min ago
         Main PID: 10598 (rpcbind)
         CGroup: /system.slice/rpcbind.service
-        â””â”€10598 /sbin/rpcbind -w
+        â""â"€10598 /sbin/rpcbind -w
         
         
         Dec 06 15:47:03 test systemd[1]: Starting RPC bind service...
@@ -116,10 +121,10 @@ Before using NFS, you need to start the NFS service and enable access to the por
         Hint: Some lines were ellipsized, use -l to show in full.
         ```
 
--   Firewalld is used by default for ECS instances that run CentOS 7. You can use the systemctl status firewalld command to check whether firewalld is enabled. If you are using iptables, use the related iptables commands to enable access to the ports \(that are required by NFS\) based on the following firewalld settings. Configure firewalld as follows:
-    1.  View the list of enabled ports that are required for NFS.
+-   Firewalld is used by default for ECS instances that run CentOS 7. You can use the systemctl status firewalld command to check whether firewalld is enabled. If you are using iptables, you can use the related iptables commands to allow access to the ports that are required by NFS based on the following firewalld settings. Configure firewalld as follows:
+    1.  View a list of ports you need to enable to start the NFS service.
 
-        ``` {#codeblock_x4t_8dw_0ov}
+        ``` {#codeblock_ww8_iq3_f4f}
         [root@test ~]# rpcinfo -p localhost
            program vers proto   port  service
             100000    4   tcp    111  portmapper
@@ -150,15 +155,15 @@ Before using NFS, you need to start the NFS service and enable access to the por
             100021    4   tcp  37688  nlockmgr
         ```
 
-    2.  Add the following firewall rules to enable the corresponding ports of the `portmapper`, `mountd`, and `nfs` services. These ports include port 111, port 20048, and port 2049 for the TCP and UDP protocols respectively.
+    2.  Add the following firewall rules to enable the corresponding ports of the `portmapper`, `mountd`, and `nfs` services. These ports include port 111, port 20048, and port 2049 for the TCP and UDP protocols.
 
         **Note:** As the `mountd` service uses a random port number, you must use one of the following methods to retrieve the port number of the `mountd` service and then configure firewalld.
 
         -   Use the rpcinfo -p localhost command to view the port number used by the `mountd` service.
-        -   Open the /etc/sysconfig/nfs file, replace xxx with a port number in the `MOUNTD_PORT=xxx` expression to specify a fixed port number for the `mountd` service.
-    3.  Add the following firewall rules:
+        -   Open the /etc/sysconfig/nfs file, replace xxx with a port number in the `MOUNTD_PORT=xxx` expression to specify a port number for the `mountd` service.
+    3.  Add the firewall rules by running the following commands:
 
-        ``` {#codeblock_l8t_3eb_yh2}
+        ``` {#codeblock_4jd_j8u_qnn}
         [root@test ~]# firewall-cmd --zone=public --add-port=111/tcp --permanent
         success
         [root@test ~]# firewall-cmd --zone=public --add-port=20048/tcp --permanent
@@ -173,9 +178,9 @@ Before using NFS, you need to start the NFS service and enable access to the por
         success
         ```
 
-    4.  Update firewall rules.
+    4.  Update firewall rules by running the following command.
 
-        ``` {#codeblock_4tw_blu_bzr}
+        ``` {#codeblock_rj9_rwj_551}
         [root@test ~]# firewall-cmd --reload
         success
         ```
